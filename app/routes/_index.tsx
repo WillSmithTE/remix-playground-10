@@ -37,7 +37,15 @@ export default function Index() {
           Edit Profile
         </Button>
         <Dialog open={showDialog} onOpenChange={setShowDialog}>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent
+            className="sm:max-w-[425px]"
+            overlayProps={{
+              onClick: (e) => {
+                e.stopPropagation();
+                setShowDialog(false);
+              },
+            }}
+          >
             <DialogHeader>
               <DialogTitle>Edit profile</DialogTitle>
               <DialogDescription>
